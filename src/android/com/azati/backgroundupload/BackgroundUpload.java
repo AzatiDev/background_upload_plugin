@@ -12,7 +12,14 @@ public class BackgroundUpload extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         JSONObject params = args.getJSONObject(0);
         if (action.equals("uploadFiles")) {
-            String array = params.getString("filesArray");
+
+            JSONArray jsonArr = params.getJSONArray("filesArray");
+            String[] arr = new String[jsonArr.lLength()];
+            for(int i = 0; i < jsonArr.length(); i++) {
+                arr[i] = jsonArr.get(i);
+            }
+
+            String array = arr[0];/*params.getString("filesArray");*/
             String data = params.getString("data");
             this.echo(array, data, callbackContext);
             return true;
