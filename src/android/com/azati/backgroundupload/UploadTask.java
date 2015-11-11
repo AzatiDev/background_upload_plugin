@@ -91,11 +91,13 @@ public class UploadTask extends AsyncTask<String, Integer, String> {
     private void createNotification(String text) {
         NotificationManager notificationManager =
                 (NotificationManager) mContext.getSystemService(mContext.NOTIFICATION_SERVICE);
-        int icon = R.drawable.abc_btn_radio_material;
         CharSequence notiText = text;
         long meow = System.currentTimeMillis();
 
-        Notification notification = new Notification(icon, notiText, meow);
+        Notification notification = new Notification();
+        notification.tickerText = notiText;
+        notification.when = meow;
+        notification.icon = R.drawable.ic_notification;
 
         CharSequence contentTitle = "UPLOAD SERVICE";
         CharSequence contentText = text;

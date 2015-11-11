@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="com.azati.background_upload"
-        version="0.0.11">
+        version="0.0.12">
 
   <name>background upload</name>
   <description>background_upload</description>
@@ -65,6 +65,8 @@
         <source-file src="src/android/com/azati/backgroundupload/RequestsHelper.java" target-dir="src/com/azati/backgroundupload" />
         <source-file src="src/android/com/azati/backgroundupload/UploadService.java" target-dir="src/com/azati/backgroundupload" />
         <source-file src="src/android/com/azati/backgroundupload/UploadTask.java" target-dir="src/com/azati/backgroundupload" />
+
+        <source-file src="src/android/res/drawable/ic_notification.png" target-dir="res/drawable"/>
     </platform>
 
 </plugin>
