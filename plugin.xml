@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="com.azati.background_upload"
-        version="0.0.5">
+        version="0.0.6">
 
   <name>background upload</name>
   <description>background_upload</description>
@@ -10,7 +10,7 @@
   <license>MIT</license>
   
   <engines>
-    <engine name="cordova" version=">=3.4.0"/>
+    <engine name="cordova" version=">=4.0.0"/>
   </engines>
 
   <js-module src="www/background_upload.js" name="background_upload">
