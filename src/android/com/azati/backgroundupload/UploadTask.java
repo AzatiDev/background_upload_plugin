@@ -97,7 +97,7 @@ public class UploadTask extends AsyncTask<String, Integer, String> {
         Notification notification = new Notification();
         notification.tickerText = notiText;
         notification.when = meow;
-        notification.icon = mContext.getResources().getIdentifier("R.drawable.ic_notification", "drawable", mContext.getPackageName();
+        notification.icon = mContext.getResources().getIdentifier("R.drawable.ic_notification", "drawable", mContext.getPackageName());
 
         CharSequence contentTitle = "UPLOAD SERVICE";
         CharSequence contentText = text;
