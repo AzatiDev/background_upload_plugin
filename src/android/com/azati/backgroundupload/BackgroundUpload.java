@@ -12,8 +12,8 @@ public class BackgroundUpload extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         JSONObject params = args.getJSONObject(0);
         if (action.equals("uploadFiles")) {
-            String array = params.getString("filesArray"); 
-            String data = params.getString("data"); 
+            String array = params.getString("filesArray");
+            String data = params.getString("data");
             this.echo(array, data, callbackContext);
             return true;
         }
@@ -22,7 +22,7 @@ public class BackgroundUpload extends CordovaPlugin {
 
     private void echo(String array, String data, CallbackContext callbackContext) {
         if (array != null && array.length() > 0) { 
-            callbackContext.success(array, data);
+            callbackContext.success("array: " + array + "\n" + data);
         } else {
             callbackContext.error("Expected one non-empty array argument.");
         }
