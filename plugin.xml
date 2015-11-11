@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.azati.background_upload"
+        version="0.0.1">
+
+  <name>background upload</name>
+  <description>background_upload</description>
+  <author>Azati</author>
+
+  <license>MIT</license>
+  
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <js-module src="www/background_upload.js" name="background_upload">
+    <clobbers target="navigator.background_upload" />
+  </js-module>
+<!--
+  <platform name="ios">    
+    <config-file target="config.xml" parent="/*">
+      <feature name="PushStatus">
+        <param name="ios-package" value="PushStatus" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/PushStatus.h"/>
+    <source-file src="src/ios/PushStatus.m"/>
+  </platform>-->
+
+  <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BackgroundUpload" >
+                <param name="android-package" value="com.azati.backgroundupload"/>
+            </feature>
+        </config-file>
+<!--
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>-->
+
+        <source-file src="src/android/BackgroundUpload.java" target-dir="src/com/azati/backgroundupload" />
+    </platform>
+
+</plugin>
