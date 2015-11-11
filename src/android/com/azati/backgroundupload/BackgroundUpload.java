@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import android.widget.Toast;
 import android.content.Intent;
+import android.content.Context;
 
 public class BackgroundUpload extends CordovaPlugin {
 
@@ -39,7 +40,7 @@ public class BackgroundUpload extends CordovaPlugin {
             Intent i = new Intent(context, UploadService.class);
             i.setAction(UploadService.ACTION_START_DOWNLOAD);
             i.putExtra("IMAGE_URL", array);
-            this.startService(i);
+            context.startService(i);
 
         } else {
             callbackContext.error("Expected one non-empty array argument.");
