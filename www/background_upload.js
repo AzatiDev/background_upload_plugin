@@ -10,6 +10,6 @@ module.exports = {
             filesArray: options.files,
             data: options.data
         };
-        cordova.exec(successCallback, errorCallback, "BackgroundUpload", "uploadFiles", [params]);
+        cordova.exec(successCallback, errorCallback, "background_upload", "uploadFiles", [params]);
     }
 };

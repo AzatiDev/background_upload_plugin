@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="com.azati.background_upload"
-        version="0.0.3">
+        version="0.0.4">
 
   <name>background upload</name>
   <description>background_upload</description>
@@ -31,7 +31,7 @@
   <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="BackgroundUpload" >
+            <feature name="background_upload" >
                 <param name="android-package" value="com.azati.backgroundupload"/>
             </feature>
         </config-file>
