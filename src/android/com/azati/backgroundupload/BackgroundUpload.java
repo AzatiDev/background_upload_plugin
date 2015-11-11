@@ -5,6 +5,8 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.widget.Toast;
+import android.content.Intent;
 
 public class BackgroundUpload extends CordovaPlugin {
 
@@ -29,7 +31,16 @@ public class BackgroundUpload extends CordovaPlugin {
 
     private void echo(String array, String data, CallbackContext callbackContext) {
         if (array != null && array.length() > 0) { 
-            callbackContext.success("array: " + array + "\n" + data);
+            //callbackContext.success("array: " + array + "\n" + data);
+
+            Context context = this.cordova.getActivity().getApplicationContext();
+
+            Toast.makeText(context, "Image selected: " + array, Toast.LENGTH_LONG).show();
+            Intent i = new Intent(context, UploadService.class);
+            i.setAction(UploadService.ACTION_START_DOWNLOAD);
+            i.putExtra("IMAGE_URL", array);
+            this.startService(i);
+
         } else {
             callbackContext.error("Expected one non-empty array argument.");
         }
