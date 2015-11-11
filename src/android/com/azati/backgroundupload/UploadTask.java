@@ -97,11 +97,23 @@ public class UploadTask extends AsyncTask<String, Integer, String> {
         Notification notification = new Notification();
         notification.tickerText = notiText;
         notification.when = meow;
-        notification.icon = mContext.getResources().getIdentifier("R.drawable.ic_notification", "drawable", mContext.getPackageName());
+        notification.icon = mContext.getResources().getIdentifier("ic_notification", "drawable", mContext.getPackageName());
 
         CharSequence contentTitle = "UPLOAD SERVICE";
         CharSequence contentText = text;
-        Intent notificationIntent = new Intent(mContext, MainActivity.class);
+
+        String packageName = mContext.getPackageName();
+        Intent launchIntent = mContext.getPackageManager().getLaunchIntentForPackage(packageName);
+        Class activityClass = null;
+        String className = launchIntent.getComponent().getClassName();
+        try {
+            activityClass = Class.forName(className);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        Intent notificationIntent = new Intent(mContext, activityClass);
         PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, notificationIntent, 0);
 
         notification.setLatestEventInfo(mContext, contentTitle, contentText, contentIntent);
